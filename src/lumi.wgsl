@@ -27,5 +27,5 @@ fn vs_main(
 fn fs_main(in: VertexOutput) -> @location(0) vec4<f32> {
     let color = textureSample(src_texture, src_texture_sampler, in.uv);
     let luminance = sqrt(color.r * color.r * 0.299 + color.g * color.g * 0.587 + color.b * color.b * 0.114);
-    return vec4<f32>(luminance);
+    return vec4<f32>(vec3<f32>(luminance), 1.0);
 }
